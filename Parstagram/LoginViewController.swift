@@ -16,9 +16,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passworldField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        //self.presentingViewController?.modalPresentationStyle = .fullScreen
         // Do any additional setup after loading the view.
     }
+    
+  /*  override func viewWillDisappear(_ animated: Bool) {
+        usernameField.text = nil
+        passworldField.text = nil
+    }
+        //clear text fields
+    //} */
     
     @IBAction func onSignIn(_ sender: Any) {
         let username = usernameField.text!
@@ -35,7 +44,12 @@ class LoginViewController: UIViewController {
                  print("Error: \(error!.localizedDescription)")
             }
         }
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        //if let destinationVC = segue.destination as? FeedViewController {
+          //  destinationVC.modalPresentationStyle = .fullScreen
+        //}
     }
     
     @IBAction func onSignUp(_ sender: Any) {
